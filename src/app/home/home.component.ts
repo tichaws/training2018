@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'home',
@@ -24,6 +25,7 @@ export class HomeComponent implements OnInit{
         error: ""
     }
 
+    constructor(   private router: Router,){}
     ngOnInit(): void {
         this.showdetail = false;
     }
@@ -95,4 +97,9 @@ export class HomeComponent implements OnInit{
     clearErrMsg(){
         this.msg.status = false;
     }
+
+    routeToStore(){
+        this.router.navigate(['/store']);
+    }
+
 }

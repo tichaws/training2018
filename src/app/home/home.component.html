@@ -78,8 +78,9 @@
                         <input type="checkbox" name="save_cc" checked="checked"> Save my card for future purchases
                     </label>
                 </li>
-                <li *ngIf="!showdetail">
-                    <button type="submit" class="button" (click)="payment()">Pay Now</button>
+                <li >
+                    <button *ngIf="!showdetail" type="submit" class="button" (click)="payment()">Pay Now</button>
+                    <button  type="submit" class="button" [routerLink]="['/store']" style="margin-left: 20px;background-color: #ebcc31;">Store</button>
                 </li>
                 <div *ngIf="msg.status" style="font-size: 12px;color:  red;padding-top: 20px;">{{msg.error}}</div>
             </ul>
