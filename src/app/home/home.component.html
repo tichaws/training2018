@@ -43,14 +43,17 @@
                         <input  type="text" name="cc_number" required="" (keypress)="clearErrMsg()" maxlength="16" [(ngModel)]="detail.cc_number">
                     </div>
                 </li>
-                <li class="form-list__row form-list__row--inline">
+                <li *ngIf="showdetail" class="form-list__row">
+                    <label>Order Number</label>
+                    <label>{{detail.order}}</label>
+                </li>
+                <li *ngIf="!showdetail" class="form-list__row form-list__row--inline">
                     <div>
                         <label>Expiration Date</label>
-                        <div *ngIf="!showdetail" class="form-list__input-inline">
+                        <div  class="form-list__input-inline">
                             <input type="text" name="cc_month" placeholder="MM" required="" maxlength="2" (keypress)="clearErrMsg()" [(ngModel)]="detail.cc_month">
                             <input type="text" name="cc_year" placeholder="YY" required=""  maxlength="4"(keypress)="clearErrMsg()" [(ngModel)]="detail.cc_year">
                         </div>
-                        <label *ngIf="showdetail">{{detail.cc_month}}/{{detail.cc_year}}</label>
                     </div>
                     <div>
                         <label>

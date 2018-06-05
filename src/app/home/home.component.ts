@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit{
         cc_month:'',
         cc_year:'',
         cc_cvc:'',
+        order:'',
     }
     msg = {
         status : false,
@@ -31,6 +32,9 @@ export class HomeComponent implements OnInit{
         this.validate()
         if(!this.msg.status){
             console.log(this.detail);
+            let card_no = this.detail.cc_number.slice(0,this.detail.cc_number.length-2);
+            this.detail.cc_number = card_no+"xx";
+            this.detail.order =  "BEA00"+Math.floor(Math.random() * (300000));
             this.showdetail = true;
         }
     }
@@ -84,6 +88,7 @@ export class HomeComponent implements OnInit{
             cc_month:'',
             cc_year:'',
             cc_cvc:'',
+            order:'',
         }
     }
 
